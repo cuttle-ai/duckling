@@ -2,8 +2,7 @@
 -- All rights reserved.
 --
 -- This source code is licensed under the BSD-style license found in the
--- LICENSE file in the root directory of this source tree. An additional grant
--- of patent rights can be found in the PATENTS file in the same directory.
+-- LICENSE file in the root directory of this source tree.
 
 
 {-# LANGUAGE GADTs #-}
@@ -98,7 +97,7 @@ ruleDurationHalfATimeGrain = Rule
     , dimension TimeGrain
     ]
   , prod = \tokens -> case tokens of
-      (_:Token TimeGrain grain:_) -> Token Duration <$> timesOneAndAHalf grain 0
+      (_:Token TimeGrain grain:_) -> Token Duration <$> nPlusOneHalf grain 0
       _ -> Nothing
   }
 
@@ -110,7 +109,7 @@ ruleDurationOneGrainAndHalf = Rule
     , dimension TimeGrain
     ]
   , prod = \tokens -> case tokens of
-      (_:Token TimeGrain grain:_) -> Token Duration <$> timesOneAndAHalf grain 1
+      (_:Token TimeGrain grain:_) -> Token Duration <$> nPlusOneHalf grain 1
       _ -> Nothing
   }
 
